@@ -19,6 +19,7 @@
 
 <script>
 import Axios from 'axios'
+const url = 'http://localhost:3000'
 export default {
   name:"register",
     data(){
@@ -32,8 +33,14 @@ export default {
     methods:{
       // CORS 
       registerSystem(){
-        Axios.get('http://localhost:3000/register',{
-            params:this.newUser
+        //链式调用
+        // Axios.get('http://localhost:3000/register',{
+        //   params:this.newUser
+        // }).then(function(reponse){
+        //   alert(reponse.data)
+        // });
+        Axios.post(url+'/register',{
+          params:this.newUser
         }).then(function(response){
           alert(response.data)
         })
@@ -42,7 +49,8 @@ export default {
 };
 </script>
 
-<style>
+<style >
+
 #registerWrapper {
   /* background-color: purple; */
   height: 100%;
