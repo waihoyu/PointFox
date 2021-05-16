@@ -33,16 +33,17 @@ export default {
     methods:{
       // CORS 
       registerSystem(){
-        //链式调用
-        // Axios.get('http://localhost:3000/register',{
-        //   params:this.newUser
-        // }).then(function(reponse){
-        //   alert(reponse.data)
-        // });
-        Axios.post(url+'/register',{
+        // Axios.get(url +'/register',{
+        //   params: this.newUser
+        // }).then(function(response){
+        //   alert(response.data.state + '\n' +response.data.message )
+        // })
+        Axios.post(url + '/register',{
           params:this.newUser
-        }).then(function(response){
-          alert(response.data)
+        }).then(function (response){
+            alert(response.data.state  +  '\n' + 
+              response.data.message
+            )
         })
       }
     }
